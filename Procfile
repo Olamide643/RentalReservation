@@ -1,1 +1,1 @@
-web:gunicorn reservation.wsgi:application --log-file -
+web: gunicorn reservation.wsgi:application --log-file -
