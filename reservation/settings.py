@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-du6cm_$jc2q!^g#w)y1pumrmdorhqs-ux!!iilyu$k%t6a_0of
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,7 +84,8 @@ DATABASES = {
     }
 }
 
-''' import dj_database_url
+#import dj_database_url
+'''
 db_from_env= dj_database_url.config(conn_max_age = 600)
 DATABASES['default'].update(db_from_env)
  '''
@@ -127,16 +128,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS =[
-    os.path.join(BASE_DIR, 'static')
-]
+STATICFILES_DIRS =(
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Activation of Django-Heroku
 django_heroku.settings(locals())
