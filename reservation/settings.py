@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-du6cm_$jc2q!^g#w)y1pumrmdorhqs-ux!!iilyu$k%t6a_0of'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,11 +84,10 @@ DATABASES = {
     }
 }
 
-#import dj_database_url
-'''
+import dj_database_url
 db_from_env= dj_database_url.config(conn_max_age = 600)
 DATABASES['default'].update(db_from_env)
- '''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
