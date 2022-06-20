@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<section class="container w-50 p-5">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title fw-bold">Your Reservation request was Successful</h3>
+      <p class="card-text">
+        <span class="fw-bold">Reservation Id: </span>{{ reservation.id}}
+        <br />
+        <span class="fw-bold">Name: </span>{{ reservation.name}}
+        <br />
+        <span class="fw-bold">Checkin Time: </span>{{ reservation.checkin}}
+        <br />
+        <span class="fw-bold">Check-Out Time: </span>{{ reservation.checkout}}
+        <br />
+        <span class="fw-bold">Previous Reservation Id: </span>{{ reservation.previous_reservation}}
+        <br />
+        <span class="fw-bold">Rental Name: </span>{{ reservation.rental_id}}
+        <br />
+        <span class="fw-bold">Rental Id: </span>{{ reservation.rental_id.id}}
+      </p>
+      <a href="/rentals/" class="card-link">View Available Rentals</a>
+      <a href="/bookings/" class="card-link">View Reservations</a>
+      <a href="/booking/" class="card-link">Book a New Reservation</a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

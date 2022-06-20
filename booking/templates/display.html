@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <link rel ="stylesheet" href="{% static 'reserve.css' %}">
+    
+</head>
+<body>
+    
+  <center> <h2>  Rentals  </h2> </center>
+
+  {% if rentals.count == 0 %}
+
+  <center style="font-size: medium;"><h3> No Rental Available</h3></center>
+
+   {% else %}
+
+  <center>
+  <div class="supports"></div>
+  
+  <ul class="list img-list">
+    {% for rental in rentals %}
+    <li class="zoom">
+      <a href="/rental/{{rental.id}}" class="inner">
+        <div class="li-img">
+          <img src="{% static 'images/images.png'%}" alt="Hotels" />
+        </div>
+        <div class="li-text">
+          <h3 class="li-head">{{rental.name}}</h3>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+    
+  
+  </ul>
+</center>
+
+{% endif %}
+</body>
+</html>
+

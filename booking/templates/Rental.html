@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<section class="container w-50 p-5">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title fw-bold">Your Rental Registration was Successful</h3>
+      <p class="card-text">
+        <span class="fw-bold">Rental Id: </span>{{ rental.id}}
+        <br />
+        <span class="fw-bold">Name: </span>{{ rental.name}}
+      </p>
+      <a href="/rentals/" class="card-link">View Available Rentals</a>
+      <a href="/bookings/" class="card-link">View Reservations</a>
+      <a href="/booking/" class="card-link">New Reservation?</a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

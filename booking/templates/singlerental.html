@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="d-flex justify-content-between" style="margin: 10px;">
+<h1 style="color:white"> {{rental.name}}</h1>
+
+  <form action = "/rental/delete/{{rental.id}}" method = "post">
+   {% csrf_token %}
+  <td><input style="cursor: pointer;"  class = "delete"   value = "Delete Rental" type="submit">
+ </form>
+</div>
+
+{% if reservations.count == 0 %}
+
+  <center style="font-size: medium;"><h3> No Reservation</h3></center>
+
+{% else %}
+  <center>
+<table>
+    <thead>
+      <tr>
+        <th>ID
+        <th>Rerservation Name
+        <th>Check In
+        <th>Check Out
+        <th>Rental ID
+        <th>Previous Reservation
+        <th colspan="2"> <center>Action</center> 
+    </thead>
+
+    <tbody>
+        {%for reservation in reservations %}
+      <tr>
+        <td>{{ reservation.id}}
+        <td>{{ reservation.name}}
+        <td>{{ reservation.checkin}}
+        <td>{{ reservation.checkout}}
+        <td>{{ reservation.rental_id}}
+        <td>{{ reservation.previous_reservation}}
+        <form action = "/booking/update/{{reservation.id}}/" method = "get">
+            {% csrf_token %}
+            <td><input style="cursor: pointer;"  class = "update"   value = "Update" type="submit">
+        </form>
+
+        <form action = "/booking/delete/{{reservation.id}}/{{ reservation.rental_id.id}}" method = "post">
+            {% csrf_token %}
+            <td><input style="cursor: pointer;" class = "delete"   value = "Delete" type="submit">
+        </form>
+            {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+
+{% endblock content %}
+
+
+
+

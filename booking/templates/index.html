@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="p-5 text-light container">
+    <h1 class="mb-3">New  Rental Registration </h1>
+    <form action ="/rental/" method="post">
+        {% csrf_token %}
+    
+    
+        <div >
+            {{form.name.errors}}
+            <label for="{{form.name.label}}" class="form-label"> Name </label>
+            {{form.name}}
+    
+        </div>
+    
+
+        <input type="submit" value="Register New Rental" class="btn btn-success">
+    
+    </form>
+</section>
+
+
+
+{% endblock content %}
