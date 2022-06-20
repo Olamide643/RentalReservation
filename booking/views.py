@@ -202,12 +202,15 @@ class ReservationView(APIView):
         
         # A sub action to update previous reservation of a reservation object when rental is updated
         if rental_id:
-            request.data.pop("previous_reservation")
+            
             try:
                 rental  =  Rental.objects.get(pk = rental_id)
             except Rental.DoesNotExist:
                 message = {"description": "Rental Id does not exist"}
                 return Response(message, status = status.HTTP_404_NOT_FOUND)
+            
+            if "previous_reservation" in request.data:
+                request.data.pop("previous_reservation")
         
             last_reservation = Reservation.objects.filter(rental_id = rental_id).order_by('-id')
         
